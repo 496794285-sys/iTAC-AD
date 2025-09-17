@@ -1,0 +1,5 @@
+# 占位符：TranAD 的 synthetic 数据一般由脚本生成或内置
+name: synthetic
+batch_size: 32
+num_workers: 0
+device: auto  # auto/mps/cpu/cuda -> 在 main.py 内选择

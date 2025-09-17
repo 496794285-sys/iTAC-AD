@@ -1,0 +1,15 @@
+# Core
+numpy
+pandas
+scipy
+scikit-learn
+pyyaml
+tqdm
+einops
+rich
+tensorboard
+
+# Dev tools (optional)
+black
+ruff
+pytest

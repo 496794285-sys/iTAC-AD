@@ -1,0 +1,18 @@
+# configs/model/itac_ad.yaml
+model:
+  name: ITAC_AD
+  encoder:
+    kind: itr  # itr or itransformer
+    d_model: 128
+    n_heads: 8
+    e_layers: 2
+    dropout: 0.1
+  decoder:
+    kind: tranad  # mlp or tranad
+    depth: 2
+    n_heads: 4
+    dropout: 0.1
+  grl:
+    enabled: true
+    lambda: 1.0
+    warmup_steps: 200

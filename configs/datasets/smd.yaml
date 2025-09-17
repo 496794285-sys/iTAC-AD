@@ -1,0 +1,11 @@
+# configs/datasets/smd.yaml
+name: SMD
+root: ./vendor/tranad/data/SMD
+window: 100
+horizon: 1
+train:
+  split: train
+test:
+  split: test
+features: auto
+normalize: zscore

@@ -1,0 +1,11 @@
+# configs/datasets/synthetic.yaml
+name: synthetic
+root: ./data/synthetic
+window: 96
+horizon: 1
+train:
+  split: train
+test:
+  split: test
+features: 7
+normalize: zscore

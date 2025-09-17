@@ -1,0 +1,33 @@
+[project]
+name = "itacad"
+version = "0.1.0"
+description = "iTAC-AD: iTransformer with Anomaly-Aware Curriculum for MTS AD"
+readme = "README_EXPERIMENT_FRAMEWORK.md"
+requires-python = ">=3.9"
+authors = [{name = "waba"}]
+dependencies = ["numpy","pandas","scipy","torch","pyyaml","matplotlib"]
+
+[project.scripts]
+itacad = "itacad.cli:main"
+
+[build-system]
+requires = ["setuptools>=68","wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["itacad*", "itac_eval*", "itac_ad*"]
+exclude = ["vendor*", "rt*", "plots*", "results*", "configs*", "processed*", "eval_output*", "eval_results*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+select = ["E","F","I","B","UP"]
+ignore = ["E203","E266","E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+ignore_missing_imports = true

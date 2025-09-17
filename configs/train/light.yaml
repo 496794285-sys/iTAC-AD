@@ -1,0 +1,24 @@
+# configs/train/light.yaml
+training:
+  epochs: 10
+  batch_size: 8
+  learning_rate: 0.001
+  max_steps: 0  # 0 = unlimited
+  log_every: 10
+  save_every: 5
+
+aac:
+  tau: 0.9
+  alpha: 1.0
+  beta: 0.5
+  window_size: 256
+  w_min: 0.0
+  w_max: 1.0
+  ema_decay: 0.98
+  bins: 32
+
+evaluation:
+  pot_q: 0.98
+  pot_level: 0.99
+  event_iou: 0.1
+  score_reduction: mean

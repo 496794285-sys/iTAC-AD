@@ -1,0 +1,31 @@
+name: itacad-ci
+on:
+  push: {branches: ["**"]}
+  pull_request: {}
+jobs:
+  cpu-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.10" }
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          pip install numpy scipy pandas matplotlib pytest
+          pip install -e .
+      - name: Smoke train (2 steps)
+        env:
+          ITAC_FORCE_CPU: "1"
+          ITAC_EPOCHS: "1"
+          ITAC_MAX_STEPS: "2"
+          ITAC_NO_TB: "1"
+          ITAC_NO_PLOTS: "1"
+          ITAC_SAVE: "1"
+          ITAC_SKIP_EVAL: "1"
+        run: |
+          python main.py --model iTAC_AD --dataset synthetic --retrain
+      - name: Run tests
+        env:
+          SKIP_GRL_TEST: "0"
+        run: pytest -q
